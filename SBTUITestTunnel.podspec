@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "SBTUITestTunnel"
-s.version          = "2.2.6"
+s.version          = "2.2.7"
 s.summary          = "Enable network mocks and more in UI Tests"
 
 s.description      = <<-DESC
@@ -19,13 +19,22 @@ s.requires_arc = true
 s.frameworks = 'UIKit'
 
 s.subspec 'Server' do |server|
-server.source_files = 'Pod/Server/*.{h,m}', 'Pod/Common/*.{h,m}'
-server.dependency 'GCDWebServer', '~> 3.0'
+    server.source_files = 'Pod/Server/*.{h,m}', 'Pod/Common/*.{h,m}'
+    server.dependency 'GCDWebServer', '~> 3.0'
 end
 
 s.subspec 'Client' do |client|
-client.frameworks = 'XCTest'
-client.source_files = 'Pod/Client/*.{h,m}', 'Pod/Common/*.{h,m}'
+    client.frameworks = 'XCTest'
+    client.source_files = 'Pod/Client/*.{h,m}', 'Pod/Common/*.{h,m}'
+end
+
+s.subspec 'Server_Framework' do |server|
+    client.vendored_frameworks = ''
+end
+    
+s.subspec 'Client_Framework' do |client|
+    client.frameworks = 'XCTest'
+    client.vendored_frameworks = ''
 end
 
 end

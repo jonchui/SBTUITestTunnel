@@ -1,0 +1,6 @@
+framework module SBTUITestTunnel_Client_Framework {
+  umbrella header "SBTUITestTunnel_Client_Framework.h"
+
+  export *
+  module * { export * }
+}
